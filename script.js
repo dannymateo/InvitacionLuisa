@@ -17,7 +17,7 @@ $(document).ready(function() {
     // Detectar el final del video y mostrar el wrapper
     let video = document.getElementById("bg-video");
     video.addEventListener("ended", function() {
-        video.style.display = "none"; // Ocultar el video
+        video.style.height = "0"; // Establecer la altura del video a 0
         $(".wraper").fadeIn(2500); // Mostrar el wrapper
     });
 });
