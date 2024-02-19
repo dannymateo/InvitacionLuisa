@@ -12,7 +12,7 @@
 }
 
 video{
-    background: #031447;
+    background: #000;
 }
 
 .wraper {
@@ -22,7 +22,7 @@ video{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(background.png);
+    background-image: url(./assets/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
