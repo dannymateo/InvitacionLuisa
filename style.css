@@ -82,8 +82,12 @@ video{
     gap: 1vh;
 }
 
-.message p, .guests p {
+.message p, .message a, .guests p {
     font-size: 1.5rem;
+}
+
+a{
+    color: #fff;
 }
 
 /* Añade estos estilos al final de tu archivo CSS */
@@ -98,4 +102,34 @@ video{
 
 .wraper {
     display: none; /* Ocultar el wrapper inicialmente */
+}
+
+.container_button {
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.template_button {
+    display: block;
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    background: green;
+    color: #ffff;
+    border: none;
+    border-radius: 2vh;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 1rem;
+    cursor: pointer;
+    transition: .2s ease-in-out all;
+}
+
+.template_button:hover {
+    background: blue;
 }
