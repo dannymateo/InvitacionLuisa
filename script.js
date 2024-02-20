@@ -1,16 +1,15 @@
 $(document).ready(function() {
-    // Verificar si hay una cadena de consulta y almacenarla en sessionStorage
-    if (sessionStorage && window.location.search) {
-        let queryString = window.location.href.split('?')[1];
-        let guestsArray = decodeURIComponent(queryString).split(',');
-        sessionStorage.setItem('guests', JSON.stringify({ names: guestsArray }));
-    }
+    // Obtener la cadena de consulta de la URL
+    let queryString = window.location.search.substring(1); // Obtener la cadena de consulta sin el signo de interrogación
 
-    // Obtener la lista de invitados desde sessionStorage y renderizarla
-    const guestsObject = JSON.parse(sessionStorage.getItem('guests'));
-    let names = guestsObject ? guestsObject.names : [];
+    // Dividir la cadena de consulta en un array de nombres de invitados
+    let guestsArray = queryString.split(',');
+
+    // Obtener el contenedor de la lista de invitados
     let guestListContainer = $(".list_guests");
-    $.each(names, function(index, name) {
+
+    // Renderizar cada nombre de invitado en el contenedor
+    $.each(guestsArray, function(index, name) {
         guestListContainer.append("<p>" + name + "</p>");
     });
 
@@ -19,5 +18,17 @@ $(document).ready(function() {
     video.addEventListener("ended", function() {
         video.style.height = "0"; // Establecer la altura del video a 0
         $(".wraper").fadeIn(2500); // Mostrar el wrapper
+    });
+
+    // Evento clic para el botón de confirmar asistencia
+    $("#confirmAttendance").click(function() {
+        // Crear el mensaje de WhatsApp con los nombres de los invitados
+        let message = guestsArray.join(", ");
+
+        // URL de WhatsApp con el mensaje predefinido
+        let whatsappURL = "https://api.whatsapp.com/send?phone=573238071801&text=Hola%20Luisa%2C%20queremos%20compartir%20este%20momento%20tan%20especial%20a%20tu%20lado%2C%20nos%20vemos%C2%A0pronto%F0%9F%8E%89%F0%9F%92%AB%0A" + encodeURIComponent(message);
+
+        // Redirigir al usuario a WhatsApp con el mensaje listo para enviar
+        window.location.href = whatsappURL;
     });
 });
