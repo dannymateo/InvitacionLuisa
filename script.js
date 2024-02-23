@@ -15,9 +15,12 @@ $(document).ready(function() {
 
     // Detectar el final del video y mostrar el wrapper
     let video = document.getElementById("bg-video");
+    let audio = new Audio("music.mp3"); // Crea un nuevo elemento de audio
+
     video.addEventListener("ended", function() {
         video.style.height = "0"; // Establecer la altura del video a 0
         $(".wraper").fadeIn(2500); // Mostrar el wrapper
+        audio.play(); // Reproducir la música
     });
 
     // Evento clic para el botón de confirmar asistencia
