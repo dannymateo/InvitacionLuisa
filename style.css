@@ -119,7 +119,7 @@ a{
     position: relative;
     width: 300px;
     max-width: 100%;
-    background: green;
+    background: #45839b;
     color: #ffff;
     border: none;
     border-radius: 2vh;
@@ -131,5 +131,5 @@ a{
 }
 
 .template_button:hover {
-    background: blue;
+    background: #485d2b;
 }
