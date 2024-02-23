@@ -2,6 +2,9 @@ $(document).ready(function() {
     // Obtener la cadena de consulta de la URL
     let queryString = window.location.search.substring(1); // Obtener la cadena de consulta sin el signo de interrogación
 
+    // Decodificar la cadena de consulta para manejar caracteres especiales
+    queryString = decodeURIComponent(queryString);
+
     // Dividir la cadena de consulta en un array de nombres de invitados
     let guestsArray = queryString.split(',');
 
